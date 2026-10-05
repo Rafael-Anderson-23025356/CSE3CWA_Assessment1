@@ -54,7 +54,7 @@ function QuoteForm({ createQuote, quote }) {
                 cover_type: coverType,
                 applicant1_age: Number(age),
                 applicant1_cover_history: hospitalCoverHistory,
-                applicant2_age: isMultiple ? age2: null,
+                applicant2_age: isMultiple ? Number(age2): null,
                 applicant2_cover_history: isMultiple ? hospitalCoverHistory2: null,
                 hospital_cover: hospitalCoverLevel,
                 extras_cover: extrasCoverHotel,
