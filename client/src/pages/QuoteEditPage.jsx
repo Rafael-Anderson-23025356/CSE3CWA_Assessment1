@@ -12,6 +12,7 @@ function QuoteEditPage() {
     const { id } = useParams();
     const [quote, setQuote] = useState(null);
     const [quoteNotFound, setQuoteNotFound] = useState(false);
+    
     useEffect(() => {
         const getQuote = async() => {
             setQuote(null);
@@ -27,6 +28,10 @@ function QuoteEditPage() {
         }
             getQuote();
     }, [id]);
+
+    if (!quote){
+        return <p>Quote loading...</p>
+    }
 
     if (quoteNotFound){
         return(

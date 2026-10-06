@@ -189,7 +189,7 @@ A separate `validateQuoteID` middleware returns `400` for non-numeric or non-pos
 > **Replace the bracketed parts below with your own account before submitting. This section must be accurate and in your own words.**
 
 - **Tool used:** Claude
-- **What it helped with:** It helped me debug code when encountering errors, generate the README file, and assisting me in what design choice like structure or color pallette to use for a specific feature.
+- **What it helped with:** It helped me debug code when encountering errors, assist wording for the README file, and brainstorming what design choice like structure or color pallette to use for a specific feature.
 - **What I implemented and checked myself:** I coded the UI, backend functions, and the SQLite database initialization by myself. I checked on the cost calculations whether they are correct or not by testing all of the inputs from their own fields at least once.
 - **One decision I made myself:** A decision I made myself is adding a home page to the web application even though it's not required, since I thought it would be a "nice to have" feature.
 

@@ -71,7 +71,7 @@ const validateQuoteBody = (req, res, next) => {
         if (!isValidAge(body.applicant2_age)){
             errors.push("applicant2_age must be an integer within range from 18 to 100.");
         }
-        normalise("applicant1_cover_history", HISTORY);
+        normalise("applicant2_cover_history", HISTORY);
     }   
 
     if (frequency == "Yearly"){

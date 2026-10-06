@@ -20,7 +20,7 @@ function QuoteDetailPage() {
                 const res = await axios.get(`http://localhost:5000/api/quotes/getQuote/${id}`);
                 setQuote(res.data);
             }catch(err){
-                if (err.status == 404 || 400){
+                if (err.status == 404 || err.status == 400){
                     setQuoteNotFound(true);
                 }
             }
