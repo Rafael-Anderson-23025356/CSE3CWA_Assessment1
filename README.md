@@ -1,6 +1,6 @@
 # HealthCoverSim — Private Health Insurance Quote Simulator
 
-CSE3CWA / CSE5006 · Assignment 1 · Semester 2, 2026
+CSE3CWA / CSE5006 · Assignment 1 · 2026
 
 HealthCoverSim is a small full-stack web app that simulates a private health insurance quote system. A user can create, view, edit and delete quote records. For each quote, the app calculates an estimated monthly and yearly premium from the cover type, hospital and extras cover, applicant ages, Lifetime Health Cover (LHC) loading, the family upgrade fee and the annual-payment discount, then explains every number in plain English.
 
