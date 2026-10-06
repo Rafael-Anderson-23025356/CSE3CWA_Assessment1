@@ -26,6 +26,8 @@ const matchOption = (value, options) => {
 
 const validateQuoteBody = (req, res, next) => {
     const body = req.body;
+    const errors = [];
+
     if (body == null || typeof(body) != "object" || Array.isArray(body)){
         return res.status(400).json({ message: "Request body must be a JSON object." })
     }
@@ -46,12 +48,10 @@ const validateQuoteBody = (req, res, next) => {
         body.customer_name = body.customer_name.trim();
     }
 
-    const errors = [];
-
     const normalise = (field, options) => {
         const match = matchOption(body[field], options);
         if (match == null){
-            errors.push(`${label} must be one of: ${options.join(", ")}.`);
+            errors.push(`${field} must be one of: ${options.join(", ")}.`);
         }else{
             body[field] = match;
         }
@@ -71,9 +71,7 @@ const validateQuoteBody = (req, res, next) => {
         if (!isValidAge(body.applicant2_age)){
             errors.push("applicant2_age must be an integer within range from 18 to 100.");
         }
-        if (!HISTORY.includes(body.applicant2_cover_history)){
-            errors.push(`applicant2_cover_history option must be one of ${HISTORY.join(", ")}.`)
-        }
+        normalise("applicant1_cover_history", HISTORY);
     }   
 
     if (frequency == "Yearly"){
