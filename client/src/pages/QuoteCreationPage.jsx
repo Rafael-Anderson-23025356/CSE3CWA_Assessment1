@@ -2,7 +2,10 @@ import QuoteForm from "../components/QuoteForm";
 
 function QuoteCreationPage() {
     return (
-        <QuoteForm createQuote quote={null} />
+        <>
+            <title>Create Quote</title>
+            <QuoteForm createQuote quote={null} />
+        </>
     )
 }
 

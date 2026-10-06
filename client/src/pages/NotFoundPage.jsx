@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function NotFoundPage(){
     return(
         <div className="font-inter min-h-screen flex flex-col w-[100%]">
+            <title>Page Not Found</title>
             <Navbar />
             <div className="px-4 md:px-6 lg:px-8 pt-8 pb-16 w-[100%] flex flex-col flex-1">
                 <div className="flex items-center justify-center flex-col gap-y-4 flex-1 py-16">

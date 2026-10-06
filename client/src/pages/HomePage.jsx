@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 function HomePage() {
     return (
         <div className="font-inter">
+            <title>Home</title>
             <Navbar />
             <HeroSection />
             <div className="px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-24 flex flex-col bg-[#4294F8] text-white">

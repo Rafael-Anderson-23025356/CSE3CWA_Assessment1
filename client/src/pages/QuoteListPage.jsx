@@ -28,6 +28,7 @@ function QuoteListPage() {
 
     return (
         <div className="font-inter">
+            <title>All Quotes</title>
             <Navbar />
             <div className="px-4 md:px-6 lg:px-8 pt-8 pb-16 max-w-7xl mx-auto">
                 <p className="text-[20px] font-semibold mb-8">

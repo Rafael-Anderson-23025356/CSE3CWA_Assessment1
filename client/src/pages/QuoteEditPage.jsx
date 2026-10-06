@@ -37,6 +37,7 @@ function QuoteEditPage() {
         return(
             <div className="font-inter flex flex-col min-h-dvh">
                 <Navbar />
+                <title>Edit Quote</title>
                 <div className="px-4 md:px-6 lg:px-8 pt-8 pb-16 max-w-[700px] mx-auto flex flex-1">
                     <div className="flex items-center justify-center flex-col gap-y-4 flex-1 py-16">
                         <SearchX size={64} />
@@ -50,7 +51,10 @@ function QuoteEditPage() {
         )
     }
     return (
-        <QuoteForm createQuote={false} quote={quote} />
+        <>
+            <title>Edit Quote</title>
+            <QuoteForm createQuote={false} quote={quote} />
+        </>
     )
 }
 
