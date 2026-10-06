@@ -5,6 +5,7 @@ import QuoteDetailPage from "./pages/QuoteDetailPage"
 import QuoteEditPage from "./pages/QuoteEditPage"
 import QuoteListPage from "./pages/QuoteListPage"
 import { useScrollToTop } from "./hooks/scrollToTop"
+import NotFoundPage from "./pages/NotFoundPage"
 
 function App() {
   useScrollToTop();
@@ -16,7 +17,7 @@ function App() {
       <Route path="/quotes/new" element={<QuoteCreationPage />} />
       <Route path="/quotes/:id" element={<QuoteDetailPage />} />
       <Route path="/quotes/:id/edit" element={<QuoteEditPage />} />
-      <Route path="*" element={<p>Page not found.</p>} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }

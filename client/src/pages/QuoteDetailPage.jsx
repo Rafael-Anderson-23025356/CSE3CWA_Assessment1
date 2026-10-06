@@ -4,23 +4,29 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { HOSPITAL_TIERS, EXTRAS_TIERS } from "../../constants/pricing";
 import Breadcrumb from "../components/BreadCrumb";
+import { SearchX } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function QuoteDetailPage() {
     const { id } = useParams();
     const [quote, setQuote] = useState(null);
+    const [quoteNotFound, setQuoteNotFound] = useState(false);
+
     useEffect(() => {
         setQuote(null);
+        setQuoteNotFound(false);
         const getQuote = async() => {
-            const res = await axios.get(`http://localhost:5000/api/quotes/getQuote/${id}`);
-            setQuote(res.data);
+            try{
+                const res = await axios.get(`http://localhost:5000/api/quotes/getQuote/${id}`);
+                setQuote(res.data);
+            }catch(err){
+                if (err.status == 404 || 400){
+                    setQuoteNotFound(true);
+                }
+            }
         }
             getQuote();
     }, [id]);
-
-    const calculateLHCLoading = (age, coverHistory) => {
-        if (coverHistory == "Yes" || age <= 30 || coverHistory == "Not Sure") return 0;
-        else return ((age - 30) * 2)/100
-    }
 
     const calculateLHCPercentage = (age, coverHistory, hospitalCover) => {
         if (
@@ -55,6 +61,23 @@ function QuoteDetailPage() {
     const app1NotSure = quote?.applicant1_cover_history?.toLowerCase() === "not sure";
     const app2NotSure = !isSingle && quote?.applicant2_cover_history?.toLowerCase() === "not sure";
     
+    if (quoteNotFound){
+        return(
+            <div className="font-inter min-h-screen flex flex-col w-[100%]">
+                <Navbar />
+                <div className="px-4 md:px-6 lg:px-8 pt-8 pb-16 w-[100%] flex flex-col flex-1">
+                    <div className="flex items-center justify-center flex-col gap-y-4 flex-1 py-16">
+                        <SearchX size={64} />
+                        <div className="gap-y-2 text-center">
+                            <p>It may have been deleted, or the link may be wrong.</p>
+                            <Link to="/quotes" className="underline text-blue-500">Back to quote list</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="font-inter">
             <Navbar />

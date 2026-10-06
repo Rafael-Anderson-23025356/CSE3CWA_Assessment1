@@ -72,7 +72,14 @@ function QuoteForm({ createQuote, quote }) {
                 const {quoteID} = res.data;
                 navigate(`/quotes/${quoteID}`)
             }catch(err){
-                console.log(err);
+                if (err.response) {
+                    console.log("Server message:", err.response.data.message);
+                    console.log("Details:", err.response.data.errors);
+                } else if (err.request) {
+                    console.log("No response from server:", err.message);
+                } else {
+                    console.log("Request setup error:", err.message);
+                }
             }
         }
     }
